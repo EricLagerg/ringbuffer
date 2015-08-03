@@ -9,8 +9,8 @@ type Buffer struct {
 	Empty   bool
 }
 
-// NewBuffer returns a pointer to a Buffer with the Data buffer
-// with the given size filled with defaultVal.
+// NewBuffer returns a pointer to a Buffer with the given size
+// filled with defaultVal.
 func NewBuffer(defaultVal, size int) *Buffer {
 
 	ir := &Buffer{
@@ -26,10 +26,10 @@ func NewBuffer(defaultVal, size int) *Buffer {
 	return ir
 }
 
-// IsEmpty returns true if the Buffer buffer is empty.
+// IsEmpty returns true if the Buffer is empty.
 func (b *Buffer) IsEmpty() bool { return b.Empty }
 
-// Push pushes a new int into the Buffer buffeb.
+// Push pushes a new int into the Buffer.
 func (b *Buffer) Push() int {
 	e := 1
 	if b.Empty {
@@ -48,7 +48,7 @@ func (b *Buffer) Push() int {
 	return old
 }
 
-// Pop removes an int from the Buffer buffeb.
+// Pop removes an int from the Buffer.
 func (b *Buffer) Pop() int {
 	if b.IsEmpty() {
 		panic("Cannot pop empty Buffer")
