@@ -30,18 +30,19 @@ func NewBuffer(defaultVal, size int) *Buffer {
 func (b *Buffer) IsEmpty() bool { return b.Empty }
 
 // Push pushes a new int into the Buffer.
-func (b *Buffer) Push() int {
-	e := 1
+func (b *Buffer) Push(x int) int {
+	empty := 1
 	if b.Empty {
-		e = 0
+		empty = 0
 	}
 
-	idx := (b.Front + e) % len(b.Data)
+	idx := (b.Front + empty) % len(b.Data)
 	old := b.Data[idx]
+	b.Data[idx] = x
 	b.Front = idx
 
 	if idx == b.Back {
-		b.Back = (b.Back + e) % len(b.Data)
+		b.Back = (b.Back + empty) % len(b.Data)
 	}
 	b.Empty = false
 
